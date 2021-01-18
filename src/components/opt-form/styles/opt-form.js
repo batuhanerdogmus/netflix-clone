@@ -13,8 +13,13 @@ export const Container = styled.div`
   }
 `;
 
+export const Break = styled.p`
+  flex-basis: 100%;
+  height: 0;
+`;
+
 export const Input = styled.input`
-  max-width: 430px;
+  max-width: 450px;
   width: 100%;
   border: 0;
   padding: 10px;
