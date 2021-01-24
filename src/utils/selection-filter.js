@@ -22,8 +22,8 @@ export default function selectionFilter({ series, films }) {
     films: [
       { title: "Drama", data: films.filter((item) => item.genre === "drama") },
       {
-        title: "Thiriller",
-        data: films.filter((item) => item.genre === "thiriller"),
+        title: "Thriller",
+        data: films.filter((item) => item.genre === "thriller"),
       },
       {
         title: "Children",
