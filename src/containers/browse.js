@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SelectProfileContainer } from "./profiles";
+import { FooterContainer } from "./footer";
 import { FirebaseContext } from "../context/firebase";
 import { Header, Loading, Card } from "../components";
 import logo from "../logo.svg";
@@ -88,12 +89,23 @@ export function BrowseContainer({ slides }) {
                   <Card.Image
                     src={`/images/${category}/${item.genre}/${item.slug}/small.jpg`}
                   />
+                  <Card.Meta>
+                    <Card.SubTitle>{item.title}</Card.SubTitle>
+                    <Card.Text>{item.description}</Card.Text>
+                  </Card.Meta>
                 </Card.Item>
               ))}
             </Card.Entities>
+            <Card.Feature category={category}>
+              <p>hello</p>
+              {/* <Player>
+                <Player.Button />
+              </Player> */}
+            </Card.Feature>
           </Card>
         ))}
       </Card.Group>
+      <FooterContainer />
     </>
   ) : (
     <SelectProfileContainer user={user} setProfile={setProfile} />
