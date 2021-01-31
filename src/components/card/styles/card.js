@@ -4,7 +4,6 @@ export const Title = styled.p`
   font-size: 24px;
   color: #e5e5e5;
   font-weight: bold;
-  margin-left: 56px;
   margin-right: 56px;
   margin-top: 0;
 `;
@@ -14,10 +13,37 @@ export const Container = styled.div`
   flex-direction: column;
   margin-bottom: 50px;
   box-sizing: border-box;
+  margin-left: 56px;
+  &:nth-child(1) {
+    margin-top: 15px;
+  }
 
+  @media (max-width: 1000px) {
+    margin-left: 36px;
+    margin-bottom: 30px;
+  }
+  @media (max-width: 600px) {
+    margin-left: 16px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 400px) {
+    margin-left: 6px;
+    margin-bottom: 10px;
+  }
   > ${Title} {
+    /* > * {
+      &:first-child {
+        margin-top: 10px;
+      }
+    } */
     @media (max-width: 1000px) {
-      margin-left: 30px;
+      font-size: 16px;
+    }
+    @media (max-width: 600px) {
+      font-size: 13px;
+    }
+    @media (max-width: 400px) {
+      font-size: 10px;
     }
   }
 
@@ -33,11 +59,11 @@ export const Group = styled.div`
   ${({ alingItems }) => alingItems && `align-items: ${alingItems}`};
   ${({ margin }) => margin && `margin: ${margin}`};
 
-  > ${Container}:first-of-type {
+  /* > ${Container}:first-of-type {
     @media (max-width: 1000px) {
       margin-top: -150px;
     }
-  }
+  } */
 `;
 
 export const SubTitle = styled.p`
@@ -172,26 +198,13 @@ export const Item = styled.div`
       z-index: 100;
     }
   }
-  &:first-of-type {
-    margin-left: 56px;
-
-    @media (max-width: 100px) {
-      margin-left: 30px;
-    }
-  }
-  &:last-of-type {
-    margin-right: 56px;
-
-    @media (max-width: 100px) {
-      margin-right: 30px;
-    }
-  }
 `;
 
 export const Image = styled.img`
   border: 0;
   width: 100%;
   max-width: 305px;
+  /* min-width: 150px; */
   cursor: pointer;
   height: auto;
   padding: 0;

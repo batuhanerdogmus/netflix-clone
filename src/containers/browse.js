@@ -6,6 +6,24 @@ import { FirebaseContext } from "../context/firebase";
 import { Header, Loading, Card, Player } from "../components";
 import logo from "../logo.svg";
 import * as ROUTES from "../constants/routes";
+// import Carousel from "nuka-carousel";
+
+// var settings = {
+//   width: "100%",
+//   frameOverflow: "initial",
+//   slidesToShow: 4,
+//   slidesToScroll: 1,
+//   speed: 750,
+//   easing: "easeSinInOut",
+//   event: {
+//     passive: false,
+//   },
+//   defaultControlsConfig: {
+//     nextButtonStyle: { display: "none" },
+//     prevButtonStyle: { display: "none" },
+//     pagingDotsStyle: { display: "none" },
+//   },
+// };
 
 export function BrowseContainer({ slides }) {
   const [category, setCategory] = useState("series");
@@ -43,7 +61,7 @@ export function BrowseContainer({ slides }) {
   return profile.displayName ? (
     <>
       {loading ? <Loading src={user.photoURL} /> : <Loading.ReleseBody />}
-      <Header src="joker1" dontShowOnSmallViewport>
+      <Header src="joker1">
         <Header.Frame>
           <Header.Group>
             <Header.Logo to={ROUTES.HOME} src={logo} alt="Netflix" />
@@ -91,12 +109,12 @@ export function BrowseContainer({ slides }) {
           <Header.PlayButton>Play</Header.PlayButton>
         </Header.Feature>
       </Header>
-
       <Card.Group>
         {slideRows.map((slideItem) => (
           <Card key={`${category} - ${slideItem.title.toLowerCase()}`}>
             <Card.Title>{slideItem.title}</Card.Title>
             <Card.Entities>
+              {/* <Carousel {...settings}> */}
               {slideItem.data.map((item) => (
                 <Card.Item key={item.docId} item={item}>
                   <Card.Image
@@ -108,7 +126,9 @@ export function BrowseContainer({ slides }) {
                   </Card.Meta>
                 </Card.Item>
               ))}
+              {/* </Carousel> */}
             </Card.Entities>
+
             <Card.Feature category={category}>
               <Player>
                 <Player.Button />

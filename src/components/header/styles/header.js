@@ -4,14 +4,18 @@ import { Link as ReactRouterLink } from "react-router-dom";
 export const Bacground = styled.div`
   display: flex;
   flex-direction: column;
+  background-size: contain;
+  max-height: 70vh;
+
   background: top left / cover no-repeat;
   ${({ src }) =>
     src
       ? `background-image: url(../images/misc/${src}.jpg); `
       : `background-image: url(../images/misc/home-bg.jpg); `}
+
   @media (max-width:1100px) {
-    ${({ dontShowOnSmallViewport }) =>
-      dontShowOnSmallViewport && "background: none;"}
+    background-size: contain;
+    min-height: 50vw;
   }
 `;
 
@@ -32,8 +36,13 @@ export const Container = styled.div`
     display: flex;
   }
 
-  @media (min-width: 1000px) {
-    margin: 0 30px;
+  @media (max-width: 1100px) {
+    margin: 0 20px;
+    padding: 8px 0;
+  }
+  @media (max-width: 400px) {
+    margin: 0 10px;
+    padding: 0;
   }
 `;
 
@@ -51,15 +60,24 @@ export const Link = styled.p`
   &:last-of-type {
     margin-right: 0;
   }
+  @media (max-width: 400px) {
+    margin-right: 10px;
+    font-size: 12px;
+  }
 `;
 
 export const Picture = styled.button`
-  background: url(${({ src }) => src});
+  background: url(${({ src }) => src}) no-repeat;
   background-size: contain;
   border: 0;
   width: 32px;
   height: 32px;
   cursor: pointer;
+
+  @media (max-width: 400px) {
+    width: 16px;
+    height: 16px;
+  }
 `;
 
 export const Dropdown = styled.div`
@@ -104,10 +122,10 @@ export const Search = styled.div`
     color: white;
     cursor: pointer;
   }
-
+  /* 
   @media (max-width: 700px) {
     display: none;
-  }
+  } */
 `;
 
 export const SearchIcon = styled.button`
@@ -118,6 +136,9 @@ export const SearchIcon = styled.button`
   img {
     filter: brightness(0) invert(1);
     width: 16px;
+    @media (max-width: 400px) {
+      width: 10px;
+    }
   }
 `;
 
@@ -168,12 +189,21 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
   }
+  @media (max-width: 400px) {
+    margin-left: 5px;
+  }
 `;
 
 export const Logo = styled.img`
   height: 32px;
   width: 108px;
   margin-right: 40px;
+
+  @media (max-width: 400px) {
+    height: 16px;
+    width: 58px;
+    margin-right: 10px;
+  }
 
   @media (min-width: 1449px) {
     height: 45px;
@@ -200,14 +230,28 @@ export const ButtonLink = styled(ReactRouterLink)`
   }
 `;
 
-export const Feature = styled(Container)`
+export const Feature = styled.div`
   padding: 150px 0 500px 0;
+  margin: 0 56px;
   flex-direction: column;
   align-items: normal;
   width: 50%;
 
   @media (max-width: 1100px) {
-    display: none;
+    transform: scale(0.7) translateX(-50px);
+    width: 80%;
+    padding: 0px;
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    position: absolute;
+
+    transform: scale(0.4) translateX(-80vw) translateY(-20vw);
+    width: 120%;
+    padding: 50px 0;
+  }
+  @media (max-width: 400px) {
+    transform: scale(0.3) translateX(-120vw) translateY(-75vw);
   }
 `;
 
