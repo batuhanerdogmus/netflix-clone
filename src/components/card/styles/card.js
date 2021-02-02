@@ -11,9 +11,16 @@ export const Title = styled.p`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   margin-left: 56px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  touch-action: pan-x;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
   &:nth-child(1) {
     margin-top: 15px;
   }
@@ -177,6 +184,7 @@ export const Meta = styled.div`
 export const Entities = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0 0 35px 0;
 `;
 
 export const Item = styled.div`
@@ -203,8 +211,8 @@ export const Item = styled.div`
 export const Image = styled.img`
   border: 0;
   width: 100%;
-  max-width: 305px;
-  /* min-width: 150px; */
+  max-width: 250px;
+  min-width: 215px;
   cursor: pointer;
   height: auto;
   padding: 0;
